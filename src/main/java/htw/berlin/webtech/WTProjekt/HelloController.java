@@ -8,7 +8,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String index() {
-        System.out.println("ya");
-        return "Maul Simon";
+        return "Hello World!";
     }
 }
