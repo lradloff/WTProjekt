@@ -14,14 +14,3 @@ public class HelloController {
         return "Hello World!";
     }
 }
-
-/**
- @RestController
- public class HelloController {
-
- @GetMapping("/")
- public String index() {
- return "Hello World!";
- }
- }
- **/
