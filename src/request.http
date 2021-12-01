@@ -1,0 +1,7 @@
+POST http://localhost:5001/rechnungen
+Content-Type: application/json
+
+{
+  "rechnung": "1+1-1*1/1",
+  "datum": "2021-12-01"
+}
