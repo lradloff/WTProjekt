@@ -57,4 +57,5 @@ public class RechnungEntity {
     public void setErgebnis(Long ergebnis) {
         this.ergebnis = ergebnis;
     }
+
 }
