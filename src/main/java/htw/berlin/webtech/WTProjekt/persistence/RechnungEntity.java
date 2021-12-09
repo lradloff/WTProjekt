@@ -27,7 +27,6 @@ public class RechnungEntity {
     }
 
     protected RechnungEntity() {
-
     }
 
     public Long getId() {
