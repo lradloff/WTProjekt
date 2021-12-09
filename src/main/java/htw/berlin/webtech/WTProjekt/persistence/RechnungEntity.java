@@ -1,25 +1,37 @@
-package htw.berlin.webtech.WTProjekt.web.api;
+package htw.berlin.webtech.WTProjekt.persistence;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class Rechnung {
+@Entity(name = "rechnungen")
+public class RechnungEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "rechnung", nullable = false)
     private String rechnung;
+
+    @Column(name = "datum")
     private LocalDate datum;
+
+    @Column(name = "ergebnis")
     private Long ergebnis;
 
-    public Rechnung(String rechnung, LocalDate datum){
+    public RechnungEntity(String rechnung, LocalDate datum, Long ergebnis) {
         this.rechnung = rechnung;
         this.datum = datum;
+        this.ergebnis = ergebnis;
+    }
+
+    protected RechnungEntity() {
+
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getRechnung() {
