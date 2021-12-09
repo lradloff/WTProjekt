@@ -1,27 +1,22 @@
 package htw.berlin.webtech.WTProjekt.web.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Rechnung {
+public class RechnungManipulationRequest {
 
-    private Long id;
     private String rechnung;
     private LocalDate datum;
     private Long ergebnis;
 
-    public Rechnung(Long id, String rechnung, LocalDate datum){
-        this.id = id;
+    public RechnungManipulationRequest(String rechnung, LocalDate datum) {
         this.rechnung = rechnung;
         this.datum = datum;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public RechnungManipulationRequest() {
     }
 
     public String getRechnung() {

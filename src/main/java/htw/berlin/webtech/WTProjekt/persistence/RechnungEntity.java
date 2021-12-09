@@ -2,6 +2,7 @@ package htw.berlin.webtech.WTProjekt.persistence;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(name = "rechnungen")
 public class RechnungEntity {
@@ -20,10 +21,9 @@ public class RechnungEntity {
     @Column(name = "ergebnis")
     private Long ergebnis;
 
-    public RechnungEntity(String rechnung, LocalDate datum, Long ergebnis) {
+    public RechnungEntity(String rechnung, LocalDate datum) {
         this.rechnung = rechnung;
         this.datum = datum;
-        this.ergebnis = ergebnis;
     }
 
     protected RechnungEntity() {
