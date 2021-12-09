@@ -1,9 +1,10 @@
-package htw.berlin.webtech.WTProjekt;
+package htw.berlin.webtech.WTProjekt.web.api;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -13,12 +14,12 @@ public class Rechnung {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String rechnung;
-    private Date datum;
+    private LocalDate datum;
     private Long ergebnis;
 
     public Rechnung(){}
 
-    public Rechnung(String rechnung, Date datum){
+    public Rechnung(String rechnung, LocalDate datum){
         this.rechnung = rechnung;
         this.datum = datum;
     }
@@ -39,11 +40,11 @@ public class Rechnung {
         this.rechnung = rechnung;
     }
 
-    public Date getDatum() {
+    public LocalDate getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(LocalDate datum) {
         this.datum = datum;
     }
 

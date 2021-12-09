@@ -1,4 +1,4 @@
-package htw.berlin.webtech.WTProjekt;
+package htw.berlin.webtech.WTProjekt.testproduct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

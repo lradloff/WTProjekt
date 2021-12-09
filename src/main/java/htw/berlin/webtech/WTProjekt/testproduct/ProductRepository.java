@@ -1,4 +1,4 @@
-package htw.berlin.webtech.WTProjekt;
+package htw.berlin.webtech.WTProjekt.testproduct;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

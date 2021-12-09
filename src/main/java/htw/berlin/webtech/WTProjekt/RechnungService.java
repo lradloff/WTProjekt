@@ -1,5 +1,6 @@
 package htw.berlin.webtech.WTProjekt;
 
+import htw.berlin.webtech.WTProjekt.web.api.Rechnung;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -5,3 +5,14 @@ Content-Type: application/json
   "rechnung": "1+1-1*1/1",
   "datum": "2021-12-01"
 }
+###
+
+POST http://localhost:5001/rechnungen
+Content-Type: application/json
+
+{
+  "rechnung": "20+100*(1+1)/100",
+  "datum": "2021-12-09"
+}
+
+###heroku pg:killall --app "wtprojekt"

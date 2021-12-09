@@ -1,4 +1,4 @@
-package htw.berlin.webtech.WTProjekt;
+package htw.berlin.webtech.WTProjekt.testproduct;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
