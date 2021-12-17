@@ -1,8 +1,6 @@
 package htw.berlin.webtech.WTProjekt.persistence;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Date;
 
 @Entity(name = "rechnungen")
 public class RechnungEntity {
@@ -16,14 +14,15 @@ public class RechnungEntity {
     private String rechnung;
 
     @Column(name = "datum")
-    private LocalDate datum;
+    private String datum;
 
     @Column(name = "ergebnis")
-    private Long ergebnis;
+    private String ergebnis;
 
-    public RechnungEntity(String rechnung, LocalDate datum) {
+    public RechnungEntity(String rechnung, String datum, String ergebnis) {
         this.rechnung = rechnung;
         this.datum = datum;
+        this.ergebnis = ergebnis;
     }
 
     protected RechnungEntity() {
@@ -41,19 +40,19 @@ public class RechnungEntity {
         this.rechnung = rechnung;
     }
 
-    public LocalDate getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
-    public Long getErgebnis() {
+    public String getErgebnis() {
         return ergebnis;
     }
 
-    public void setErgebnis(Long ergebnis) {
+    public void setErgebnis(String ergebnis) {
         this.ergebnis = ergebnis;
     }
 

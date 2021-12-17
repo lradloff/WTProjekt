@@ -7,13 +7,14 @@ public class Rechnung {
 
     private Long id;
     private String rechnung;
-    private LocalDate datum;
-    private Long ergebnis;
+    private String datum;
+    private String ergebnis;
 
-    public Rechnung(Long id, String rechnung, LocalDate datum){
+    public Rechnung(Long id, String rechnung, String datum, String ergebnis){
         this.id = id;
         this.rechnung = rechnung;
         this.datum = datum;
+        this.ergebnis = ergebnis;
     }
 
     public Long getId() {
@@ -32,19 +33,19 @@ public class Rechnung {
         this.rechnung = rechnung;
     }
 
-    public LocalDate getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
-    public Long getErgebnis() {
+    public String getErgebnis() {
         return ergebnis;
     }
 
-    public void setErgebnis(Long ergebnis) {
+    public void setErgebnis(String ergebnis) {
         this.ergebnis = ergebnis;
     }
 }

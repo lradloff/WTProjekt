@@ -54,30 +54,3 @@ public class RechnungRestController {
     }
 
 }
-
-/**
- * package htw.berlin.webtech.WTProjekt.web;
- *
- * import htw.berlin.webtech.WTProjekt.RechnungService;
- * import htw.berlin.webtech.WTProjekt.web.api.Rechnung;
- * import org.springframework.beans.factory.annotation.Autowired;
- * import org.springframework.web.bind.annotation.*;
- *
- * @RestController
- * public class RechnungRestController {
- *
- *     @Autowired
- *     RechnungService service;
- *
- *     @PostMapping("/rechnungen")
- *     public Rechnung createRechnung(@RequestBody Rechnung rechnung) {return service.save(rechnung);}
- *
- *     @GetMapping("rechnungen/{id}")
- *     public Rechnung getRechnung(@PathVariable String id){
- *         Long rechnungId = Long.parseLong(id);
- *         return service.get(rechnungId);
- *     }
- *
- *
- * }
- */

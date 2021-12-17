@@ -32,7 +32,7 @@ public class RechnungService {
     }
 
     public Rechnung create(RechnungManipulationRequest request) {
-        var rechnungEntity = new RechnungEntity(request.getRechnung(), request.getDatum());
+        var rechnungEntity = new RechnungEntity(request.getRechnung(), request.getDatum(), request.getErgebnis());
         rechnungEntity =  rechnungRepository.save(rechnungEntity);
         return transformEntity(rechnungEntity);
     }
@@ -46,6 +46,7 @@ public class RechnungService {
         var rechnungEntity = rechnungEntityOptional.get();
         rechnungEntity.setRechnung(request.getRechnung());
         rechnungEntity.setDatum(request.getDatum());
+        rechnungEntity.setErgebnis(request.getErgebnis());
         rechnungEntity = rechnungRepository.save(rechnungEntity);
 
         return transformEntity(rechnungEntity);
@@ -64,7 +65,8 @@ public class RechnungService {
         return new Rechnung(
                 rechnungEntity.getId(),
                 rechnungEntity.getRechnung(),
-                rechnungEntity.getDatum()
+                rechnungEntity.getDatum(),
+                rechnungEntity.getErgebnis()
         );
     }
 
