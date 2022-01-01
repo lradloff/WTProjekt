@@ -1,8 +1,5 @@
 package htw.berlin.webtech.WTProjekt.web.api;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 public class Rechnung {
 
     private Long id;
