@@ -61,7 +61,7 @@ public class RechnungService {
         return true;
     }
 
-    private Rechnung transformEntity(RechnungEntity rechnungEntity) {
+    public Rechnung transformEntity(RechnungEntity rechnungEntity) {
         return new Rechnung(
                 rechnungEntity.getId(),
                 rechnungEntity.getRechnung(),
