@@ -1,6 +1,5 @@
 package htw.berlin.webtech.WTProjekt.web;
 
-//import htw.berlin.webtech.WTProjekt.RechnungService;
 import htw.berlin.webtech.WTProjekt.service.RechnungService;
 import htw.berlin.webtech.WTProjekt.web.api.Rechnung;
 import htw.berlin.webtech.WTProjekt.web.api.RechnungManipulationRequest;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
