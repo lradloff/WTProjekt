@@ -3,6 +3,8 @@ package htw.berlin.webtech.service;
 import htw.berlin.webtech.WTProjekt.persistence.RechnungEntity;
 import htw.berlin.webtech.WTProjekt.persistence.RechnungRepository;
 import htw.berlin.webtech.WTProjekt.service.RechnungService;
+import htw.berlin.webtech.WTProjekt.web.api.Rechnung;
+import htw.berlin.webtech.WTProjekt.web.api.RechnungManipulationRequest;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
@@ -68,5 +73,27 @@ public class RechnungServiceTest implements WithAssertions {
         assertThat(result.getDatum()).isEqualTo("01.01.2022");
         assertThat(result.getErgebnis()).isEqualTo("2");
 
+    }
+
+    @Test
+    @DisplayName("should transform List of RechnungEntity to List of Rechnung and return it when using findAll")
+    void should_transform_and_return_list_of_calculations() {
+
+        var rechnungen = List.of(
+                new RechnungEntity("1+1", "03.01.2022", "2"),
+                new RechnungEntity("3+3*4", "01.01.2022", "24")
+        );
+
+        doReturn(rechnungen).when(repository).findAll();
+
+        var result = underTest.findAll();
+
+        verify(repository).findAll();
+        assertThat(result.get(0).getRechnung()).isEqualTo("1+1");
+        assertThat(result.get(0).getDatum()).isEqualTo("03.01.2022");
+        assertThat(result.get(0).getErgebnis()).isEqualTo("2");
+        assertThat(result.get(1).getRechnung()).isEqualTo("3+3*4");
+        assertThat(result.get(1).getDatum()).isEqualTo("01.01.2022");
+        assertThat(result.get(1).getErgebnis()).isEqualTo("24");
     }
 }

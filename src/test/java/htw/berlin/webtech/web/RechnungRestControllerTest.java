@@ -8,7 +8,6 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
@@ -20,7 +19,6 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -88,7 +86,7 @@ public class RechnungRestControllerTest {
     }
 
     @Test
-    @DisplayName("should return the correct calculation when using put")
+    @DisplayName("should return the correct calculation when using put request")
     void return_correct_calculation_when_putting() throws Exception {
 
         var rechnung = new Rechnung(1L, "3*3", "04.01.2022", "9");
@@ -106,6 +104,42 @@ public class RechnungRestControllerTest {
                 .andExpect(jsonPath("$.rechnung").value("3*3"))
                 .andExpect(jsonPath("$.datum").value("04.01.2022"))
                 .andExpect(jsonPath("$.ergebnis").value("9"));
+    }
+
+    @Test
+    @DisplayName("should return 404 if the existing calculation is not found when using put request")
+    void return_404_if_calculation_not_found_when_putting() throws Exception {
+
+        String rechnungJson = "{\"id\": \"1\", \"rechnung\": \"3*3\", \"datum\": \"04.01.2022\", \"ergebnis\": 9}";
+
+        doReturn(null).when(rechnungService).update(anyLong(), any());
+
+        mockMvc.perform(
+                        put("/rechnungen/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(rechnungJson)
+                                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @DisplayName("should return 200 if delete was successful")
+    void dalete_test() throws Exception {
+
+        doReturn(true).when(rechnungService).deleteById(anyLong());
+
+        mockMvc.perform(delete("/rechnungen/1"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("should return 404 if calculation to delete was not found")
+    void return_404_if_calculation_to_dalete_not_found() throws Exception {
+
+        doReturn(false).when(rechnungService).deleteById(anyLong());
+
+        mockMvc.perform(delete("/rechnungen/1"))
+                .andExpect(status().isNotFound());
     }
 
 }
