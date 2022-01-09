@@ -72,7 +72,6 @@ public class RechnungServiceTest implements WithAssertions {
         assertThat(result.getRechnung()).isEqualTo("1+1");
         assertThat(result.getDatum()).isEqualTo("01.01.2022");
         assertThat(result.getErgebnis()).isEqualTo("2");
-
     }
 
     @Test
